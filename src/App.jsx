@@ -1,32 +1,39 @@
 // src/App.jsx
 import React, { useState } from "react";
 import { MainMenu } from "./components/MainMenu";
+import { PlayersLibrary } from "./components/PlayersLibrary";
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState("MAIN_MENU");
 
   const handleNewGame = () => {
-    // This transitions you directly into your client-side character set up screen!
     setCurrentScreen("SETUP_PLAYERS");
   };
 
+  const handleOpenLibrary = () => {
+    setCurrentScreen("LIBRARY");
+  };
+
   return (
-    <div className="w-full min-h-screen bg-slate-950">
+    <div className="w-full min-h-screen bg-game-bg selection:bg-game-primary/40">
       {currentScreen === "MAIN_MENU" && (
-        <MainMenu
-          onNewGame={handleNewGame}
-          onOpenSettings={() => console.log("Open Settings Modal")}
-        />
+        <MainMenu onNewGame={handleNewGame} onOpenLibrary={handleOpenLibrary} />
+      )}
+
+      {currentScreen === "LIBRARY" && (
+        <PlayersLibrary onBack={() => setCurrentScreen("MAIN_MENU")} />
       )}
 
       {currentScreen === "SETUP_PLAYERS" && (
-        <div className="p-6 text-white font-mono">
-          <h1 className="text-2xl">Configuration Screen</h1>
+        <div className="p-6 text-white font-sans">
+          <h1 className="text-2xl font-bold text-slate-100 mb-4">
+            Configuration Screen
+          </h1>
           <button
             onClick={() => setCurrentScreen("MAIN_MENU")}
-            className="mt-4 text-red-400"
+            className="text-game-primary hover:text-game-primary-hover font-bold transition-colors"
           >
-            ← Return to Main Office
+            ← Return to Main Menu
           </button>
         </div>
       )}

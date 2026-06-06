@@ -1,7 +1,16 @@
 /* src/index.css */
 @import "tailwindcss";
 
+@font-face {
+  font-family: "EskapadeFraktur";
+  src: url("/fonts/EskapadeFraktur.ttf") format("truetype"); /* Update filename to match yours! */
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-special: "EskapadeFraktur", ui-serif, serif;
   /* The Warm Grey Background Palette */
   --color-game-bg: #6b645a;
   --color-game-surface: #5a544b;
@@ -17,4 +26,9 @@
 body {
   overflow: hidden;
   touch-action: manipulation;
+  font-family: var(--font-special);
+}
+
+button {
+  font-family: var(--font-special);
 }
