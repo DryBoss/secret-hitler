@@ -1,0 +1,20 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@theme {
+  /* The Warm Grey Background Palette */
+  --color-game-bg: #6b645a;
+  --color-game-surface: #5a544b;
+  --color-game-surface-hover: #4c463f;
+  --color-game-surface-border: #3a352f;
+
+  /* The Terracotta Orange Primary Palette */
+  --color-game-primary: #e05b2b;
+  --color-game-primary-hover: #d67b5c;
+  --color-game-primary-border: #b4431a;
+}
+
+body {
+  overflow: hidden;
+  touch-action: manipulation;
+}
